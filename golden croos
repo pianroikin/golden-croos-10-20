@@ -1,0 +1,29 @@
+def calculate_ema(data, window):
+    # Calculate the Exponential Moving Average (EMA) using the provided data and window size
+    # You can use any method or library to calculate the EMA
+    
+    # Example pseudocode for calculating EMA:
+    # ema = calculate_simple_moving_average(data[:window])
+    # multiplier = 2 / (window + 1)
+    # for i in range(window, len(data)):
+    #     ema = (data[i] - ema) * multiplier + ema
+    # return ema
+
+def check_golden_cross(data):
+    # Check for a golden cross between EMA 10 and EMA 20 in the given data
+    
+    ema_10 = calculate_ema(data, 10)  # Calculate EMA 10
+    ema_20 = calculate_ema(data, 20)  # Calculate EMA 20
+    
+    if ema_10 > ema_20:
+        return True  # Golden cross occurred
+    else:
+        return False  # Golden cross did not occur
+
+# Example usage:
+data = [10, 12, 11, 13, 14, 15, 12, 9, 11, 10, 9, 12, 14, 15, 17, 20, 18, 16, 14, 12]
+
+if check_golden_cross(data):
+    print("Golden cross occurred!")
+else:
+    print("Golden cross did not occur.")
